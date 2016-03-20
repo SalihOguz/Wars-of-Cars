@@ -1,0 +1,19 @@
+DialogResult cevap;
+
+cevap = MessageBox.Show("Kaydý silmek istediðinizden eminmisiniz", "Uyarý", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+if (cevap == DialogResult.Yes)
+
+{
+
+kmt.Connection = bag;
+
+bag.Open();
+
+kmt.CommandText = "delete from ogrbil where nosu='" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'";
+
+kmt.ExecuteNonQuery();
+
+bag.Close();
+
+listele();
